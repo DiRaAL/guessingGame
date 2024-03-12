@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adivina el número</title>
+  <style>
+    body {
+      font-family: Arial, 'Times New Roman'
+    }
+    #feedback {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Adivina el número</h1>
+  <p>Prueba tu suerte adivinando un número del 1 al 100:</p>
+  <input type="number" id="userGuess" min="1" max="100">
+  <button onclick="checkGuess()">Adivinar</button>
+  <button onclick="newGame()">Nuevo Juego</button>
+  <div id="feedback"></div>
+
+  <script>
+

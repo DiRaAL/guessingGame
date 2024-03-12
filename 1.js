@@ -1,10 +1,10 @@
-function numRandom() {
-  let randomNumber;
+function adivinar() {
+  let numRandom;
   do {
-    randomNumber = Math.floor(Math.random() * 100) + 1;
-  } while (randomNumber > 100);
-  return randomNumber;
+    numRandom = Math.floor(Math.random() * 100) + 1;
+  } while (numRandom > 100);
+  return numRandom;
 }
 
-console.log(numRandom());
+console.log(adivinar());
 
