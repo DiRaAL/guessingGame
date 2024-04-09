@@ -4,23 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adivina el número</title>
-  <style>
-    body {
-      font-family: Arial, 'Times New Roman'
-    }
-    #feedback {
-      margin-top: 20px;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="Style.css"/> 
 </head>
-<body>
-  <h1>Adivina el número</h1>
-  <p>Prueba tu suerte adivinando un número del 1 al 100:</p>
-  <input type="number" id="userGuess" min="1" max="100">
-  <button onclick="checkGuess()">Adivinar</button>
-  <button onclick="newGame()">Nuevo Juego</button>
-  <div id="feedback"></div>
+<body onload="nuevoJuego()"> 
 
-  <script>
+  <div class="container">
+    <div class="child-element">
+      <h1>Adivina el número</h1>
+    </div>
+    <p id="rangeMessage">Prueba tu suerte adivinando un número:</p>
+    <input type="number" placeholder="" id="userGuess" min="1" max="100">
+    <div class="difficulty">
+      <label for="difficulty">Selecciona la dificultad:</label>
+      <select id="difficulty" onchange="actualizarRango()">
+        <option value="facil">Fácil</option>
+        <option value="intermedio">Intermedio</option>
+        <option value="dificil">Difícil</option>
+      </select>
+    </div>
+    <div class="button">
+      <button id="Adivinar" onclick="adivinar()">Adivinar</button> 
+      <button onclick="nuevoJuego()">Nuevo Juego</button>
+    </div>
+    <div id="feedback"></div>
+    <script src="/7.js"></script>
+    <script>
+      function actualizarRango() {
+        const selectDificultad = document.getElementById("difficulty");
+        const rangoMessage = document.getElementById("rangeMessage");
+        const dificultadSeleccionada = selectDificultad.value;
+        
+        switch (dificultadSeleccionada) {
+          case 'facil':
+            rangoMessage.textContent = "Prueba tu suerte adivinando un número del 1 al 5:";
+            break;
+          case 'intermedio':
+            rangoMessage.textContent = "Prueba tu suerte adivinando un número del 1 al 10:";
+            break;
+          case 'dificil':
+            rangoMessage.textContent = "Prueba tu suerte adivinando un número del 1 al 100:";
+            break;
+          default:
+            rangoMessage.textContent = "Prueba tu suerte adivinando un número:";
+        }
+      }
+    </script>
+  </div>
+</body>
+</html>
+
 

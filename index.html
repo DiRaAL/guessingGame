@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adivina el número</title>
 </head>
+<link rel="stylesheet" href="Style.css"/>
 <body>
-    
+  
+  <div class="container">
+      <div class="child-element"><h1>Adivina el número</h1></div>
+    <p>Prueba tu suerte adivinando un número del 1 al 100:</p>
+    <input type="number" placeholder="Escriba un número del 1 al 100" id="userGuess" min="1" max="100">
+      <div class="button">
+        <button id= "Adivinar" onclick="adivinar()">Adivinar</button> 
+        <button onclick ="nuevoJuego()">Nuevo Juego</button>
+      </div>
+    <div id="feedback"></div>
+    <script src="/6.js"></script>
+  </div>
 </body>
 </html>
+
+
+
+  <body>

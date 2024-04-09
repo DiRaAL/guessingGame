@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adivina el número</title>
+  <link rel="stylesheet" href="Style.css"/> 
+</head>
+<body> 
+
+
+  <div id="paginaJuego" class="container">
+    <div class="child-element">
+      <h1>Adivina el número</h1>
+    </div>
+    <p id="rangeMessage">Prueba tu suerte adivinando un número:</p>
+    <input type="number" placeholder="" id="userGuess" min="1" max="100">
+    <div class="difficulty">
+      <label for="difficulty">Selecciona la dificultad:</label>
+      <select id="difficulty" onchange="actualizarRango()">
+        <option value="facil" selected>Fácil</option>
+        <option value="intermedio">Intermedio</option>
+        <option value="dificil">Difícil</option>
+      </select>
+    </div>
+    <div class="button">
+      <button id="Adivinar" onclick="adivinar()">Adivinar</button> 
+      <button onclick="nuevoJuego()">Nuevo Juego</button>
+      <button onclick="mostrarEstadisticas()">Estadisticas</button>
+    </div>
+    <div id="feedback"></div>
+  </div>
+
+
+  <script src="/8.js"></script>
+  <script>
+    
+    document.addEventListener("DOMContentLoaded", function() {
+    nuevoJuego();
+    });
+
+    
+  </script>
+</body>
+</html>
+
+

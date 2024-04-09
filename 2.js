@@ -1,9 +1,11 @@
-function genRandom() {
-Math.floor(math.random()*100)+1
-
-}
-while (genRandom > 100);
-return genRandom;
-
-console.log (genRandom)
+function adivinar() {
+    let numRandom;
+    do {
+      numRandom = Math.floor(Math.random() * 100) + 1;
+    } while (numRandom > 100);
+    return numRandom;
+  }
   
+  console.log(adivinar());
+  
+  //luego usar el index2//

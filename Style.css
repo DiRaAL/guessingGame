@@ -1,0 +1,66 @@
+.container {
+    margin:  auto;
+    position: relative;
+    transform: translate(0%,0%);
+}
+
+.child-element {
+    color: orange;
+    align-self: top;
+    margin: 0 auto;
+    position: relative;
+    left: 50%;
+    transform: translate(-40%, -50%);
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex;
+    width: 357px;
+}
+
+body {
+    display: flex;
+    font-family: Arial, 'Times New Roman';
+    background: #0c1020;
+    color: #fff;  
+    min-height: 100vh;
+    
+  }
+  #feedback {
+    margin-top: 20px;
+    font-weight: bold;
+    width: 357px;
+    position: relative;
+  }
+
+  /*universal
+        *  {
+                margin: 0;
+                padding: 0;
+                color:red'
+            } 
+*/ 
+
+input {
+    width: 325px;
+    height: 50px;
+    background: transparent;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 0 15px;
+    color: white;
+    
+}
+
+input::placeholder {
+    color: white;
+}
+
+.label {
+    
+
+}
+/*h1,h2,...,hx {} para seleccionar varios*/
