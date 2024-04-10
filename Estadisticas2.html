@@ -8,62 +8,83 @@
 </head>
 <body> 
 
+
+  
   <div id="paginaEstadisticas" class="container">
     <div class="child-element">
       <h1>Estadísticas del juego</h1>
-    </div>
-    <div>
-      <table id="tablaEstadisticas" border="1">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Intentos</th>
-            <th>Resultado</th>
+    </div> 
+    
+    <!--<div id="Tabla" class="container">
+      <table bgcolor="black" width="700"> 
+        <tr bgcolor="grey">  se puede agregar varios th si escirbes th*(n cantidad)
+          <th width="100">Nombre</th>
+          <th width="100">Intentos</th>
+          <th width="100">Resultado</th>
+        </tr>
+          <tr bgcolor="lightgrey" align="center">
+            <td>""</td>
+            <td>""</td>
+            <td>""</td>
           </tr>
-        </thead>
-        <tbody id="cuerpoTablaEstadisticas">
-          <!-- Aquí se agregarán las filas de la tabla con los datos -->
-        </tbody>
+          <tr bgcolor="lightblue" align="center">
+            <td>""</td>
+            <td>""</td>
+            <td>""</td>
+          </tr>
+          <tr  bgcolor="lightgrey" align="center">
+            <td>""</td>
+            <td>""</td>
+            <td>""</td>
+          </tr>
+          <tr bgcolor="lightblue" align="center">
+            <td>""</td>
+            <td>""</td>
+            <td>""</td>
+          </tr>
+          <tr  bgcolor="lightgrey" align="center">
+            <td>""</td>
+            <td>""</td>
+            <td>""</td>
+          </tr>
+          <tr bgcolor="lightblue" align="center">
+            <td>""</td>
+            <td>""</td>
+            <td>""</td>
+          </tr>
+          <tr  bgcolor="lightgrey" align="center">
+            <td>""</td>
+            <td>""</td>
+            <td>""</td>
+          </tr>
+          <tr bgcolor="lightblue" align="center">
+            <td>""</td>
+            <td>""</td>
+            <td>""</td>
+          </tr>
+          <tr  bgcolor="lightgrey" align="center">
+            <td>""</td>
+            <td>""</td>
+            <td>""</td>
+          </tr>
+          <tr bgcolor="lightblue" align="center">
+            <td>""</td>
+            <td>""</td>
+            <td>""</td>
+          </tr>
+          
       </table>
-    </div>
+    </div>--> 
     <button onclick="volverInicio()">Nuevo Juego</button>
   </div>
-  
+  <list>
+    
+  </list>
   <script src="/8.js"></script>
   <script>
-    // Supongamos que tienes datos almacenados en una lista de objetos llamada "datosJugadores"
-    var datosJugadores = [
-      { nombre: "Jugador 1", intentos: 5, resultado: "Victoria" },
-      { nombre: "Jugador 2", intentos: 8, resultado: "Derrota" }
-    ];
-
-    // Obtener referencia al tbody
-    var tbody = document.getElementById("cuerpoTablaEstadisticas");
-
-    // Iterar sobre los datos y agregar filas a la tabla
-    datosJugadores.forEach(function(jugador) {
-      var newRow = document.createElement("tr");
-
-      var nameCell = document.createElement("td");
-      nameCell.textContent = jugador.nombre;
-      newRow.appendChild(nameCell);
-
-      var attemptsCell = document.createElement("td");
-      attemptsCell.textContent = jugador.intentos;
-      newRow.appendChild(attemptsCell);
-
-      var resultCell = document.createElement("td");
-      resultCell.textContent = jugador.resultado;
-      newRow.appendChild(resultCell);
-
-      tbody.appendChild(newRow);
-    });
-
-    // Función para volver al inicio del juego
-    function volverInicio() {
-      // Aquí puedes agregar el código necesario para volver al inicio del juego
-    }
-  </script>
+    document.write ('<table border = 1>' + table + '</table>' )
+   </script>
 </body>
 </html>
+
 

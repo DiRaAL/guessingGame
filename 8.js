@@ -121,13 +121,15 @@ function actualizarRango() {
   }
 }
 
-function actualizarTablaEstadisticas(nombre, intentos, resultado) {
-  const cuerpoTabla = document.getElementById("cuerpoTablaEstadisticas");
-  const fila = document.createElement("tr");
-  fila.innerHTML = `<td>${nombre}</td><td>${intentos}</td><td>${resultado}</td>`;
-  cuerpoTabla.appendChild(fila);
-  
-  if (cuerpoTabla.children.length > 10) {
-    cuerpoTabla.removeChild(cuerpoTabla.children[0]);
+var table = '';
+var rows = 10;
+var cols = 10
+for (var r = 0; r < rows;r++);
+{
+table += '<tr>';
+for (var c = 1;c <= cols; c++)
+  {
+    table += '<td>' + c + '</td>';
   }
+table += '</tr>';
 }
