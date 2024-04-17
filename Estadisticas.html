@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estadísticas del juego</title>
-  <link rel="stylesheet" href="Style.css"/> 
+  <link rel="stylesheet" href="Style.css" />
 </head>
-<body> 
+
+<body onload="initStats()">
 
   <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Intentos</th>
+        <th>Resultado</th>
+      </tr>
+    </thead>
+    <tbody id="statsTable">
 
+    </tbody>
 
   </table>
-  
-  
+
+
   <div id="paginaEstadisticas" class="container">
     <div class="child-element">
       <h1>Estadísticas del juego</h1>
-    </div> 
+    </div>
     <button onclick="volverInicio()">Nuevo Juego</button>
   </div>
   <list>
-    
+
   </list>
   <script src="/8.js"></script>
   <script>
-    
-   
+
+
   </script>
 </body>
+
 </html>

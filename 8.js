@@ -50,7 +50,6 @@ function iniciarJuego() {
   window.location.href = "Adivina.html";
 }
 
-
 function mostrarEstadisticas() {
   window.location.href = "Estadisticas.html";
 }
@@ -93,10 +92,12 @@ function volverInicio() {
   window.location.href = "Bienvenido.html";
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("difficulty").value = "facil";
-  actualizarRango();
-});
+// no actualiza bien la informacion
+// este codigo arregla eso supuestamente
+//document.addEventListener("DOMContentLoaded", function () {
+// document.getElementById("difficulty").value = "facil";
+// actualizarRango();
+//});
 
 function actualizarRango() {
   const selectDificultad = document.getElementById("difficulty");
@@ -104,10 +105,6 @@ function actualizarRango() {
   const dificultadSeleccionada = selectDificultad.value;
 
   switch (dificultadSeleccionada) {
-    case "facil":
-      rangoMessage.textContent =
-        "Prueba tu suerte adivinando un número del 1 al 5:";
-      break;
     case "intermedio":
       rangoMessage.textContent =
         "Prueba tu suerte adivinando un número del 1 al 10:";
@@ -117,19 +114,45 @@ function actualizarRango() {
         "Prueba tu suerte adivinando un número del 1 al 100:";
       break;
     default:
-      rangoMessage.textContent = "Prueba tu suerte adivinando un número:";
+      rangoMessage.textContent =
+        "Prueba tu suerte adivinando un número del 1 al 5:";
+      break;
+    //default:
+    //  rangoMessage.textContent = "Prueba tu suerte adivinando un número:";
   }
 }
 
-var table = '';
-var rows = 10;
-var cols = 10
-for (var r = 0; r < rows;r++);
-{
-table += '<tr>';
-for (var c = 1;c <= cols; c++)
-  {
-    table += '<td>' + c + '</td>';
+function initStats() {
+  const statsTable = document.getElementById("statsTable");
+
+  const statsJson = window.localStorage.getItem("stats");
+  const stats = JSON.parse(statsJson);
+  for (s of stats) {
+    const row = document.createElement("tr");
+    const name = document.createElement("td");
+    name.innerText = s.name;
+    const tries = document.createElement("td");
+    tries.innerText = s.tries;
+    const result = document.createElement("td");
+    result.innerText = s.result ? "Ganado" : "Perdido";
+
+    row.appendChild(name);
+    row.appendChild(tries);
+    row.appendChild(result);
+    statsTable.appendChild(row);
   }
-table += '</tr>';
 }
+
+var table = "";
+var rows = 10;
+var cols = 10;
+for (var r = 0; r < rows; r++) {
+  table += "<tr>";
+  for (var c = 1; c <= cols; c++) {
+    table += "<td>" + c + "</td>";
+  }
+  table += "</tr>";
+}
+
+const silla = { patas: 4};
+JSON.stringify(silla);
