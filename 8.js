@@ -2,8 +2,7 @@ let numRandom;
 let tries = 0;
 let rangeMin;
 let rangeMax;
-let ganado = userGuess === numRandom
-let perdido = (tries === 10)
+
 
 function establishRanges(difficulty) {
   switch (difficulty) {
@@ -87,11 +86,15 @@ function guess() {
   }
 }
 
+
 function showMessage(mensaje) {
   let triesMessage = "Intentos: " + tries;
   document.getElementById("feedback").innerText =
     mensaje + "\n" + triesMessage;
 }
+
+let win = guess === numRandom           //!//
+let lose = (tries === 10)
 
 function returnToStart() {
   window.location.href = "Bienvenido.html";
