@@ -1,72 +1,77 @@
 let numRandom;
-let intentos = 0;
-let rangoMin;
-let rangoMax;
+let tries = 0;
+let rangeMin;
+let rangeMax;
+let ganado = userGuess === numRandom
+let perdido = (tries === 10)
 
-function establecerRangos(dificultad) {
-  switch (dificultad) {
+function establishRanges(difficulty) {
+  switch (difficulty) {
     case "facil":
-      rangoMin = 1;
-      rangoMax = 5;
+      rangeMin = 1;
+      rangeMax = 5;
       break;
     case "intermedio":
-      rangoMin = 1;
-      rangoMax = 10;
+      rangeMin = 1;
+      rangeMax = 10;
       break;
     case "dificil":
-      rangoMin = 1;
-      rangoMax = 100;
+      rangeMin = 1;
+      rangeMax = 100;
       break;
     default:
-      rangoMin = 1;
-      rangoMax = 100;
+      rangeMin = 1;
+      rangeMax = 100;
   }
 }
 
-function generarNumeroAleatorio(min, max) {
+function generateNumRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function nuevoJuego() {
-  const selectDificultad = document.getElementById("difficulty");
-  const dificultadSeleccionada = selectDificultad.value;
+function newGame() {
+  const selectDifficulty = document.getElementById("difficulty");
+  const selectedDifficulty = selectDifficulty.value;
 
-  establecerRangos(dificultadSeleccionada);
-  numRandom = generarNumeroAleatorio(rangoMin, rangoMax);
+  establishRanges(selectedDifficulty);
+  numRandom = generateNumRandom(rangeMin, rangeMax);
 
   document.getElementById("userGuess").value = "";
   document.getElementById("userGuess").disabled = false;
   document.getElementById("Adivinar").disabled = false;
-  intentos = 0;
+  tries = 0;
   mostrarMensaje("");
 }
 
-function iniciarJuego() {
+function startGame() {
   var nombre = document.getElementById("inputNombre").value;
   if (nombre.trim() === "") {
     alert("Por favor ingresa tu nombre.");
     return;
   }
+  var inputName = document.getElementById ("inputNombre")
+  localStorage.setItem("name", getElementById(inputName))
+
   window.location.href = "Adivina.html";
 }
 
-function mostrarEstadisticas() {
+function showStats() {
   window.location.href = "Estadisticas.html";
 }
 
-function adivinar() {
+function guess() {
   let userGuess = parseInt(document.getElementById("userGuess").value);
   let diferencia = Math.abs(numRandom - userGuess);
 
-  intentos++;
+  tries++;
 
   if (userGuess === numRandom) {
     mostrarMensaje("Correcto! Has adivinado el número.");
     document.getElementById("userGuess").disabled = true;
     document.getElementById("Adivinar").disabled = true;
     mostrarEstadisticas();
-    actualizarTablaEstadisticas("Jugador", intentos, "Adivinado");
-  } else if (intentos === 10) {
+    actualizarTablaEstadisticas("Jugador", tries, "Adivinado");
+  } else if (tries === 10) {
     mostrarMensaje(
       "Incorrecto. El número era: " +
         numRandom +
@@ -74,7 +79,7 @@ function adivinar() {
     );
     document.getElementById("userGuess").disabled = true;
     document.getElementById("Adivinar").disabled = true;
-    actualizarTablaEstadisticas("Jugador", intentos, "Fallido");
+    actualizarTablaEstadisticas("Jugador", tries, "Fallido");
   } else if (diferencia <= 10) {
     mostrarMensaje("Caliente! Estás muy cerca del número.");
   } else {
@@ -82,13 +87,13 @@ function adivinar() {
   }
 }
 
-function mostrarMensaje(mensaje) {
-  let intentosMensaje = "Intentos: " + intentos;
+function showMessage(mensaje) {
+  let triesMessage = "Intentos: " + tries;
   document.getElementById("feedback").innerText =
-    mensaje + "\n" + intentosMensaje;
+    mensaje + "\n" + triesMessage;
 }
 
-function volverInicio() {
+function returnToStart() {
   window.location.href = "Bienvenido.html";
 }
 
@@ -99,22 +104,22 @@ function volverInicio() {
 // actualizarRango();
 //});
 
-function actualizarRango() {
-  const selectDificultad = document.getElementById("difficulty");
-  const rangoMessage = document.getElementById("rangeMessage");
-  const dificultadSeleccionada = selectDificultad.value;
+function updateRange() {
+  const selectDifficulty = document.getElementById("difficulty");
+  const rangeMessage = document.getElementById("rangeMessage");
+  const selectedDifficulty = selectDifficulty.value;
 
-  switch (dificultadSeleccionada) {
+  switch (selectedDifficulty) {
     case "intermedio":
-      rangoMessage.textContent =
+      rangeMessage.textContent =
         "Prueba tu suerte adivinando un número del 1 al 10:";
       break;
     case "dificil":
-      rangoMessage.textContent =
+      rangeMessage.textContent =
         "Prueba tu suerte adivinando un número del 1 al 100:";
       break;
     default:
-      rangoMessage.textContent =
+      rangeMessage.textContent =
         "Prueba tu suerte adivinando un número del 1 al 5:";
       break;
     //default:
@@ -137,13 +142,13 @@ function initStats() {
     result.innerText = s.result ? "Ganado" : "Perdido";
 
     row.appendChild(name);
-    row.appendChild(tries);
+    row.appendChild(tries);                //tf is all this//
     row.appendChild(result);
     statsTable.appendChild(row);
   }
 }
 
-var table = "";
+/*var table = "";
 var rows = 10;
 var cols = 10;
 for (var r = 0; r < rows; r++) {
@@ -152,7 +157,10 @@ for (var r = 0; r < rows; r++) {
     table += "<td>" + c + "</td>";
   }
   table += "</tr>";
-}
+}*/
 
-const silla = { patas: 4};
-JSON.stringify(silla);
+var user = {
+  "nombre":"//function call//",
+  "intentos":"//function call//",
+  "resultado":"//function call//",
+}

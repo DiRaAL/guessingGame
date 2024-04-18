@@ -9,24 +9,24 @@
 <body> 
 
 
-  <div id="paginaJuego" class="container">
-    <div class="adivina">
+  <div id="gamePage" class="container">
+    <div class="guess">
       <h1>Adivina el número</h1>
     </div>
     <p id="rangeMessage">Prueba tu suerte adivinando un número del 1 al 5:</p>
     <input type="number" placeholder="" id="userGuess" min="1" max="100">
     <div class="difficulty">
       <label for="difficulty">Selecciona la dificultad:</label>
-      <select id="difficulty" onchange="actualizarRango()">
+      <select id="difficulty" onchange="updateRange()">
         <option value="facil" selected>Fácil</option>
         <option value="intermedio">Intermedio</option>
         <option value="dificil">Difícil</option>
       </select>
     </div>
     <div class="button">
-      <button id="Adivinar" onclick="adivinar()">Adivinar</button> 
-      <button onclick="nuevoJuego()">Nuevo Juego</button>
-      <button onclick="mostrarEstadisticas()">Estadisticas</button>
+      <button id="Adivinar" onclick="guess()">Adivinar</button> 
+      <button onclick="newGame()">Nuevo Juego</button>
+      <button onclick="showStats()">Estadisticas</button>
     </div>
     <div id="feedback"></div>
   </div>
@@ -36,7 +36,7 @@
   <script>
     
     document.addEventListener("DOMContentLoaded", function() {
-    nuevoJuego();
+    newGame();
     });
 
     
