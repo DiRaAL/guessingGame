@@ -39,7 +39,7 @@ function newGame() {
   document.getElementById("userGuess").disabled = false;
   document.getElementById("Adivinar").disabled = false;
   tries = 0;
-  mostrarMensaje("");
+  showMessage("");
 }
 
 function startGame() {
@@ -48,8 +48,6 @@ function startGame() {
     alert("Por favor ingresa tu nombre.");
     return;
   }
-  var inputName = document.getElementById ("inputNombre")
-  localStorage.setItem("name", getElementById(inputName))
 
   window.location.href = "Adivina.html";
 }
@@ -65,36 +63,47 @@ function guess() {
   tries++;
 
   if (userGuess === numRandom) {
-    mostrarMensaje("Correcto! Has adivinado el número.");
+    showMessage("Correcto! Has adivinado el número.");
     document.getElementById("userGuess").disabled = true;
     document.getElementById("Adivinar").disabled = true;
-    mostrarEstadisticas();
-    actualizarTablaEstadisticas("Jugador", tries, "Adivinado");
+    showStats();
+    updateTableOfStats("Jugador", tries, "Adivinado");
   } else if (tries === 10) {
-    mostrarMensaje(
+    showMessage(
       "Incorrecto. El número era: " +
         numRandom +
         ". Perdiste. ¿Quieres probar otra vez?"
     );
     document.getElementById("userGuess").disabled = true;
     document.getElementById("Adivinar").disabled = true;
-    actualizarTablaEstadisticas("Jugador", tries, "Fallido");
+    updateTableOfStats("Jugador", tries, "Fallido");
   } else if (diferencia <= 10) {
-    mostrarMensaje("Caliente! Estás muy cerca del número.");
+    showMessage("Caliente! Estás muy cerca del número.");
   } else {
-    mostrarMensaje("Incorrecto. Intenta de nuevo.");
+    showMessage("Incorrecto. Intenta de nuevo.");
   }
 }
 
 
-function showMessage(mensaje) {
+function showMessage(message) {
   let triesMessage = "Intentos: " + tries;
   document.getElementById("feedback").innerText =
-    mensaje + "\n" + triesMessage;
+    message + "\n" + triesMessage;
 }
 
+function results() {
 let win = guess === numRandom           //!//
 let lose = (tries === 10)
+if (results === win) console.log ("win")
+else if (results ===lose) console.log ("lose")
+}
+
+function numberOfTries(message) {
+  let triesMessage =tries;
+  document.getElementById("feedback").innerText =
+    message + "\n" + triesMessage;
+  
+}
 
 function returnToStart() {
   window.location.href = "Bienvenido.html";
@@ -166,4 +175,19 @@ var user = {
   "nombre":"//function call//",
   "intentos":"//function call//",
   "resultado":"//function call//",
+}
+
+function userDataJson () {
+ 
+var userData ={
+
+    Nombre: getElemtnById ("userName"),
+    Intentos: numberOfTries,
+    Resultado: results,
+  
+  }
+
+  var jsonData = JSON.stringify(userData);
+
+  console.log(jsonData); 
 }
